@@ -13,19 +13,19 @@ public class player : MonoBehaviour
     public float timeCooldown; // valor do tempo de atraso do tiro
 
     private Vector2 playerPosition; // posição do jogador
-    public static bool playing; // true = jogo em andamento || false = jogo pausado/fim de jogo
+    public static bool GameOver; // true = fim de jogo|| false = jogo em andamento
 
     public UI UI; // objeto da classe UI (do script UI.cs)
 
     void Start(){
-        playing = true; // o jogo começa assim que a cena carrega
+        GameOver = false; // o jogo começa assim que a cena carrega
     }
 
     void Update()
     {
-        /* playing = true -> jogador pode mover a nave e atirar
-           playing = true -> jogador não pode mover a nave nem atirar */
-        if(playing){
+        /* GameOver = true -> jogador pode mover a nave e atirar
+           GameOver = true -> jogador não pode mover a nave nem atirar */
+        if(!GameOver && !pauseGame.IsPaused ){
             Move();
             Shoot();
         }

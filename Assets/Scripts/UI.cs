@@ -50,7 +50,7 @@ public class UI : MonoBehaviour
            então ativa a o texto "GAME OVER" e o botão de recomeçar. Também destrói todos
            os asteróides contidos na cena */
         spawner.spawnOn = false;
-        player.playing = false;
+        player.GameOver = true;
         gameOverPanel.SetActive(true);
 
         var asteroids = GameObject.FindGameObjectsWithTag("asteroid");
@@ -69,7 +69,7 @@ public class UI : MonoBehaviour
         lifeText.text = ": 3";
         
         spawner.spawnOn = true;
-        player.playing = true;
+        player.GameOver = false;
         gameOverPanel.SetActive(false);
     }
 }

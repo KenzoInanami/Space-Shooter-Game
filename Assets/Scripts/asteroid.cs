@@ -22,7 +22,8 @@ public class asteroid : MonoBehaviour
         direction.Normalize();
         movement = direction;
 
-        StartCoroutine( Rotate() );
+        if( !pauseGame.IsPaused ) StartCoroutine( Rotate() );
+        else StopCoroutine( Rotate() );
     }
 
     private void FixedUpdate() {
